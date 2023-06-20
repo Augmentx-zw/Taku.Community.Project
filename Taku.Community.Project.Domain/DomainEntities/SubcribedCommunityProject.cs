@@ -7,6 +7,7 @@ namespace Taku.Community.Project.Domain.DomainEntities
         [Key]
         public Guid SubcribedCommunityProjectId { get; set; }
         public Guid ProjectId { get; set; }
+        public Guid CardId { get; set; }
         public Guid UserId { get; set; }
         public bool Recurring { get; set; }
         public int RecurringDays { get; set; }

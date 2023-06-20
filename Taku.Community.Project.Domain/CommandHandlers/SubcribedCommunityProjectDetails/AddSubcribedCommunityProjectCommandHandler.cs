@@ -7,6 +7,7 @@ namespace Taku.Community.Project.Domain.CommandHandlers.SubcribedCommunityProjec
     {
         public Guid SubcribedCommunityProjectId { get; set; }
         public Guid ProjectId { get; set; }
+        public Guid CardId { get; set; }
         public Guid UserId { get; set; }
         public bool Recurring { get; set; }
         public int RecurringDays { get; set; }
@@ -38,11 +39,12 @@ namespace Taku.Community.Project.Domain.CommandHandlers.SubcribedCommunityProjec
                 UserId = request.UserId,
                 ProjectId = request.ProjectId,
                 Action = request.Action,
+                CardId= request.CardId,
                 Amount = request.Amount,
                 Recurring = request.Recurring,
                 RecurringDays = request.RecurringDays,
                 StartDate = request.StartDate,
-                NextDate = request.NextDate,
+                NextDate = request.NextDate.AddDays(request.RecurringDays),
                 CreatedOn = DateTime.Now,
                 UpdatedOn = DateTime.Now
             };
